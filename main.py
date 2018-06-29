@@ -2,7 +2,7 @@
 # 6.26.2018 TimRCM
 
 import pyodbc
-import pandas
+from pandas import DataFrame
 
 import config
 
@@ -14,9 +14,8 @@ export.execute(config.query)
 
 # Establish a pandas DataFrame using from_records, which accepts 
 # the list of tuples that will be contained in export
-df = pandas.DataFrame.from_records(export)
+df = DataFrame.from_records(export)
 df.columns = config.columns
-
 
 # Dump the data to an HTML table 
 html = df.to_html("export.html", border=1, justify='left', index=False)
