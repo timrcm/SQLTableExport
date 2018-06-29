@@ -7,7 +7,12 @@ from pandas import DataFrame
 import config
 
 # Create a connection to the SQL database using pyodbc
-conn = pyodbc.connect('DRIVER={SQL Server Native Client 11.0};SERVER='+config.server+';DATABASE='+config.database+';UID='+config.username+';PWD='+config.password)
+try:
+    conn = pyodbc.connect('DRIVER={SQL Server Native Client 11.0};SERVER='+config.server+';DATABASE='+config.database+';UID='+config.username+';PWD='+config.password)
+except:
+    print("Unknown connection error.")
+    exit(1)
+
 export = conn.cursor()
 # Execute the query in config.py 
 export.execute(config.query)
