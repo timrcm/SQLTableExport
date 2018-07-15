@@ -9,8 +9,8 @@ import config
 
 
 def connect_windows():
-    '''Create a connection to the SQL database using pyodbc & the SQL Server Native Client 11.0 driver in Windows 10,
-    then executes the SQL query to establish a Pandas DataFrame'''
+    '''Create a connection to the SQL database using pyodbc & the SQL Server Native Client 11.0 
+    driver in Windows 10, then executes the SQL query to establish a Pandas DataFrame'''
 
     try:
         conn = pyodbc.connect('DRIVER={SQL Server Native Client 11.0};SERVER='+config.server+';DATABASE='+config.database+';UID='+config.username+';PWD='+config.password)
